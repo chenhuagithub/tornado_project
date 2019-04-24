@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-8"><img src="statics/img/logo.png"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon"><span class="glyphicon glyphicon-phone" aria-hidden="true"></span></div>
+                  <input type="text" class="form-control" name="mobile" id="mobile"  placeholder="手机号">
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></div>
+                  <input type="text" class="form-control" name="imagecode" id="imagecode"  placeholder="图片验证码">
+                  <div class="input-group-addon"><img id="img"  src="http://192.168.202.143:8888/check_code"></div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
+                  <input type="text" class="form-control" name="messagecode" id="messagecode"  placeholder="短信验证码">
+                    <div id="get_code" class="input-group-addon">获取验证码</div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+                  <input type="password" class="form-control" name="password" id="password"  placeholder="密码">
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+                  <input type="password" class="form-control" name="passwordagain" id="passwordagain"  placeholder="确认密码">
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"><button id="sub" type="button" class="btn btn-danger btn-lg btn-block">注册</button></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-2"><br> 已有帐号,<span id="login_now" style="color: aqua" class="login"> 立即登录</span></div>
+            <div class="col-md-4"></div>
+        </div>
+
+    </div>
+
+<script type="text/javascript" >
+    $('#sub').click(function() {
+        //获取信息
+        var mobile = document.getElementById('mobile').value;
+        var imagecode = document.getElementById('imagecode').value;
+        var messagecode = document.getElementById('messagecode').value;
+        var password = document.getElementById('password').value;
+        var passwordagain = document.getElementById('passwordagain').value;
+
+        //判断信息
+        if (mobile == "") {
+            alert("号码不能为空");
+        } else if (imagecode == "") {
+            alert("请输入图片验证码");
+        } else if (messagecode == "") {
+            alert("请输入手机验证码");
+        } else if (password == "") {
+            alert("请输入密码");
+        } else if (passwordagain == "") {
+            alert("请再次输入密码");
+        } else if (passwordagain != password) {
+            alert("两次密码不一致");
+        } else {
+            $(function () {
+                $.ajax({
+                    type:"post",
+                    url:"http://192.168.202.143:8888/login",
+                    data:{
+                        mobile: document.getElementById('mobile').value,
+                        imagecode: document.getElementById('imagecode').value,
+                        messagecode: document.getElementById('messagecode').value,
+                        password: document.getElementById('password').value,
+                        passwordagain: document.getElementById('passwordagain').value,
+                    },
+                    dataType:"json",
+                    success: function (data) {
+                        alert("提交成功");
+                    }
+
+                });
+            });
+        }
+
+
+    });
+
+    $('#img').click(function() {
+        var code = document.getElementById('img');
+        code.src += '?';
+    });
+
+    $("#get_code").click(function() {
+        $.post(
+            "http://192.168.202.143:8888/mobile", {
+                mobile: document.getElementById("mobile").value,
+            },
+            function(data, status) {
+                alert(status);
+            }
+        );
+    });
+
+    $("#login_now").click(function (e) {
+        window.location.href="register.html";
+    });
+
+</script>
+
+
+</body>
+</html>

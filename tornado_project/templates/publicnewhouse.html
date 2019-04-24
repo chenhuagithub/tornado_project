@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的订单</title>
+    <script src="https://cdn.bootcss.com/holder/2.9.4/holder.min.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+        .colo{
+            background-color: white;
+
+        }
+        .col{
+            background-color: white;
+
+        }
+        .fh{
+            color: green;
+            text-align: center;
+
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" style="background-color: lightgrey;border-style: groove" >
+                <div class="row col">
+                    <div class="col-md-4"><span id="return" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></div>
+                    <div class="col-md-4"><span>发布新房源</span></div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-4">图片上传</div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"></div>
+                    <hr>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                            <div>
+                                <div class="img-avatar">
+                                    <div class="vic" id="localImag">
+                                        <img class="img" style="height: 100%;width: 100%;" src="holder.js/290x290?text=点击选择文件进行上传文件" id="myPic" />
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <form id="uploadForm" enctype="multipart/form-data">
+                            <p><input type="file" id="file" name="file" class="btn btn-sm btn-normal"  onchange="showPicture(this.value)"></p>
+                        </form>
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-4">基本信息</div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"></div>
+                    <hr>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">房屋标题<br>
+                        <input id="house_name" type="text" placeholder="必填" class="form-control">
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-12">每晚价格<br>
+                        <input id="price" type="text" placeholder="必填" class="form-control">
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-12">所在城区<br>
+                        <input id="location" type="text" placeholder="必填" class="form-control">
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-12">详细地址<br>
+                        <input id="detail_addr" type="text" placeholder="必填" class="form-control">
+                    </div>
+                </div><br><br>
+
+                <div class="row">
+                    <div class="col-md-4">详细信息</div>
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4"></div>
+                    <hr>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">出租房间数目<br>
+                        <input id="house_amount" placeholder="必填" type="text" class="form-control">
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-12">房屋面积<br>
+                        <input id="house_area" type="text" placeholder="必填" class="form-control">
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-12">户型描述<br>
+                        <input id="house_account" type="text" class="form-control" placeholder="三室两厅两卫(必填)">
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-12">宜住人数<br>
+                        <input id="liver_amount" type="text" placeholder="必填" class="form-control" >
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-12">卧床配置<br>
+                        <input id="bed_info" type="text" class="form-control" placeholder="如：双人床：2x1.8x1张 1.5x2x2张(必填)">
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-12">押金数额<br>
+                        <input id="cash_money" type="text" placeholder="必填" class="form-control">
+                    </div>
+                </div><br>
+
+                <div class="row">
+                    <div class="col-md-12">最少入住天数<br>
+                        <input id="least_day" type="text" placeholder="必填" class="form-control">
+                    </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-12">最多入住天数<br>
+                        <input id="most_day" type="text" placeholder="必填" class="form-control" placeholder="0表示无限制">
+                    </div>
+                </div><br><br>
+
+                <div class="row">
+                    <div class="col-md-12">配套设施</div>
+                    <hr>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input  type="checkbox" id="wireless_net" name="checkbook" value="无线网络"> 无线网络
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" id="hot_water" name="checkbook" value="热水沐浴"> 热水沐浴
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" id="air_conditioner" name="checkbook" value="空调"> 空调
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" id="heating" name="checkbook"  value="暖气"> 暖气
+                        </label>
+                    </div>
+                </div>
+             <div class="row">
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" id="smoking" name="checkbook"  value="允许吸烟"> 允许吸烟
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" id="drinking_dev" name="checkbook" value="饮水设备"> 饮水设备
+                        </label>
+                    </div>
+                </div>
+             <div class="row">
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" id="toilet_things" name="checkbook" value="牙具"> 牙具
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" id="toilet_soap" name="checkbook"  value="香皂"> 香皂
+                        </label>
+                    </div>
+                </div>
+             <div class="row">
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="checkbook" value="拖鞋"> 拖鞋
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="checkbook"  value="手纸"> 手纸
+                        </label>
+                    </div>
+                </div>
+             <div class="row">
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="checkbook" value="毛巾"> 毛巾
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="checkbook" value="沐浴露,洗发露"> 沐浴露,洗发露
+                        </label>
+                    </div>
+                </div>
+             <div class="row">
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="checkbook" value="冰箱"> 冰箱
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="checkbook" value="洗衣机"> 洗衣机
+                        </label>
+                    </div>
+                </div>
+
+             <div class="row">
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="checkbook" value="电梯"> 电梯
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="checkbook" value="允许做饭"> 允许做饭
+                        </label>
+                    </div>
+                </div>
+             <div class="row">
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="checkbook" value="门禁系统"> 门禁系统
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="checkbook" value="停车位"> 停车位
+                        </label>
+                    </div>
+                </div>
+             <div class="row">
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="checkbook" value="有线网络"> 有线网络
+                        </label>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="checkbook" value="电视"> 电视
+                        </label>
+                    </div>
+                </div>
+
+             <div class="row">
+                    <div class="col-md-6">
+                        <label class="checkbox-inline">
+                          <input type="checkbox" name="checkbook" value="浴缸"> 浴缸
+                        </label>
+                    </div>
+                </div><br>
+
+            <div class="row">
+                <button type="button" id="sub" class="btn btn-success btn-sm btn-block">发布房源信息</button>
+            </div><br>
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-8"><span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span><span>爱家租房 享受爱家的温馨</span></div>
+                <div class="col-md-2"></div>
+            </div><br>
+
+            </div>
+
+            <div class="col-md-4"></div>
+        </div>
+
+
+
+    </div>
+
+<script type="text/javascript">
+	function showPicture(value) {
+		var docObj = document.getElementById("file");
+
+		var imgObjPreview = document.getElementById("myPic");
+		if (docObj.files && docObj.files[0]) {
+			//火狐下，直接设img属性
+			imgObjPreview.style.display = 'block';
+			imgObjPreview.style.width = '100%';
+			imgObjPreview.style.height = '100%';
+			//imgObjPreview.src = docObj.files[0].getAsDataURL();
+
+			//火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+			imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+		} else {
+			//IE下，使用滤镜
+			docObj.select();
+			var imgSrc = document.selection.createRange().text;
+			var localImagId = document.getElementById("localImag");
+			//必须设置初始大小
+			localImagId.style.width = "100%";
+			localImagId.style.height = "100%";
+			//图片异常的捕捉，防止用户修改后缀来伪造图片
+			try {
+				localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+				localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+			} catch (e) {
+				alert("您上传的图片格式不正确，请重新选择!");
+				return false;
+			}
+			imgObjPreview.style.display = 'none';
+			document.selection.empty();
+		}
+		return true;
+	}
+</script>
+
+
+
+<script type="text/javascript">
+    $("#return").click(function (e) {
+        window.location.href="http://192.168.202.143:8888/myhouse";
+
+    });
+    $("#sub").click(function (e) {
+        var flag=0;
+
+        if($("#file").val()==""){
+
+        }else {
+            flag++;
+        }
+
+        if($("#house_name").val()==""){
+            $("#house_name").attr("placeholder","*此项必填*");
+        }else {
+            flag++;
+        }
+
+        if($("#location").val()==""){
+            $("#location").attr("placeholder","*此项必填*");
+        }else {
+            flag++;
+        }
+
+        if($("#detail_addr").val()==""){
+            $("#detail_addr").attr("placeholder","*此项必填*");
+        }else {
+            flag++;
+        }
+
+        if($("#house_account").val()==""){
+            $("#house_account").attr("placeholder","三室两厅两卫(*此项必填*)");
+        }else {
+            flag++;
+        }
+
+        if($("#bed_info").val()==""){
+            $("#bed_info").attr("placeholder","双人床（*此项必填*）");
+        }else {
+            flag++;
+        }
+
+
+        var price=$("#price").val();
+        var n=Number(price);
+        if(price==""){
+            $("#price").attr("placeholder","*此项必填*");
+        }else if(isNaN(n)){
+            alert("你输入的价格格式不对,请注意检查");
+        }else {
+            flag++;
+        }
+
+
+        var house_amount=$("#house_amount").val();
+        var m=Number(house_amount);
+        if(house_amount==""){
+            $("#house_amount").attr("placeholder","*此项必填*");
+        }else if(isNaN(m)){
+            alert("出租房间信息填写错误");
+        }else {
+            flag++;
+        }
+
+
+        var house_area=$("#house_area").val();
+        var x=Number(house_area);
+        if(house_area==""){
+            $("#house_area").attr("placeholder","*此项必填*");
+        }else if(isNaN(x)){
+            alert("房屋面积填写错误");
+        }else {
+            flag++;
+        }
+
+        var liver_amount=$("#liver_amount").val();
+        var y=Number(liver_amount);
+        if(liver_amount==""){
+            $("#liver_amount").attr("placeholder","*此项必填*");
+        }else if(isNaN(y)){
+            alert("宜居人数填写错误");
+        }else {
+            flag++;
+        }
+
+        var cash_money=$("#cash_money").val();
+        var z=Number(cash_money);
+        if(cash_money==""){
+            $("#cash_money").attr("placeholder","*此项必填*");
+        }else if(isNaN(z)){
+            alert("押金金额填写错误");
+        }else {
+            flag++;
+        }
+
+        var least_day=$("#least_day").val();
+        var x=Number(least_day);
+        if(least_day==""){
+            $("#least_day").attr("placeholder","*此项必填*");
+        }else if(isNaN(x)){
+            alert("最少入住天数填写错误");
+        }else {
+            flag++;
+        }
+
+        var most_day=$("#most_day").val();
+        var x=Number(most_day);
+        if(most_day==""){
+            $("#most_day").attr("placeholder","*此项必填*");
+        }else if(isNaN(x)){
+            alert("最多入住天数填写错误");
+        }else {
+            flag++;
+        }
+
+        if(flag==13){
+            var formData=new FormData($('form')[0])
+            $.ajax({
+                url:"http://192.168.202.143:8888/houseimage",
+                type:"post",
+                data:formData,
+                dataType:'json',
+                success:function (da) {
+                    if(da.code==200){
+                        alert("图片上传成功");
+                        var str=""
+                        $.each($("input[name='checkbook']:checked"),function(i,val){//第一个参数表示索引下标，第二个参数表示当前索引元素
+                            str+=val.value+" "
+                        });
+
+                        $.ajax({
+                            type:"post",
+                            url:"http://192.168.202.143:8888/publichouse",
+                            dataType:"json",
+                            data:{
+                                house_name:$("#house_name").val(),
+                                price:$("#price").val(),
+                                location:$("#location").val(),
+                                detail_addr:$("#detail_addr").val(),
+                                house_amount:$("#house_amount").val(),
+                                house_area:$("#house_area").val(),
+                                house_account:$("#house_account").val(),
+                                liver_amount:$("#liver_amount").val(),
+                                bed_info:$("#bed_info").val(),
+                                cash_money:$("#cash_money").val(),
+                                least_day:$("#least_day").val(),
+                                most_day:$("#most_day").val(),
+                                ancillary_facility:str,
+                                house_image_url:da.file_path,
+
+                            },
+                            success:function (data) {
+                                if(data.code==200){
+                                    alert("房源发布成功");
+                                }else {
+                                    alert("房源发布失败");
+                                }
+
+                            }
+
+                        });
+                    }else {
+                        alert("图片上传失败");
+                    }
+                },
+                error:function () {
+                    alert("房源上传失败");
+                },
+                contentType:false,
+                processData:false
+
+            });
+        }else {
+            alert("请先完善信息再发布房源信息");
+        }
+
+
+
+
+
+    });
+
+</script>
+
+</body>
+</html>

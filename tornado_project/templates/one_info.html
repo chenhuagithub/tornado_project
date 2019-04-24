@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" ></div>
+            <div class="col-md-1" ><span id="return" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></div>
+            <div class="col-md-2" ><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人信息</span></div>
+            <div class="col-md-1" ><span></span></div>
+            <div class="col-md-4"></div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="row" >
+                    <div class="col-md-4"><span>头像</span></div>
+                    <div class="col-md-8"></div>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-3">
+                            <div>
+                                <div class="img-avatar">
+                                    <div class="vic" id="localImag">
+                                        <img class="img" style="width: 60px;height: 60px;" src="" id="myPic" />
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-md-7">
+                        <form id="uploadForm" enctype="multipart/form-data">
+                            <p><input type="file" id="file" name="file" class="btn btn-sm btn-normal"  onchange="showPicture(this.value)"></p>   
+                            <button id="sub" type="button" class="btn btn-info btn-xs btn-block">上传</button>
+                            <!--<p><input type="submit"  value="上传"></p>-->
+                        </form>
+
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div><br>
+
+
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">用户名</div>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+             <div class="form-group has-success has-feedback">
+                  <div class="input-group">
+                    <input type="text"  class="form-control" name="username" id="username" aria-describedby="inputGroupSuccess2Status">
+                    <span id="save" class="input-group-addon">保存</span>
+                  </div>
+              </div>
+
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+
+
+
+
+
+    </div>
+
+		<script type="text/javascript">
+			function showPicture(value) {
+				var docObj = document.getElementById("file");
+
+				var imgObjPreview = document.getElementById("myPic");
+				if (docObj.files && docObj.files[0]) {
+					//火狐下，直接设img属性
+					imgObjPreview.style.display = 'block';
+					imgObjPreview.style.width = '60px';
+					imgObjPreview.style.height = '60px';
+					//imgObjPreview.src = docObj.files[0].getAsDataURL();
+
+					//火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+					imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+				} else {
+					//IE下，使用滤镜
+					docObj.select();
+					var imgSrc = document.selection.createRange().text;
+					var localImagId = document.getElementById("localImag");
+					//必须设置初始大小
+					localImagId.style.width = "60px";
+					localImagId.style.height = "60px";
+					//图片异常的捕捉，防止用户修改后缀来伪造图片
+					try {
+						localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+						localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+					} catch (e) {
+						alert("您上传的图片格式不正确，请重新选择!");
+						return false;
+					}
+					imgObjPreview.style.display = 'none';
+					document.selection.empty();
+				}
+				return true;
+			}
+		</script>
+
+<script type="text/javascript">
+    $("#return").click(function () {
+        window.location.href="http://192.168.202.143:8888/userinfo";
+    });
+    $("#save").click(function () {
+        var username=document.getElementById('username').value;
+        if(username==""){
+            alert("用户名不能为空");
+        }else {
+             $.ajax({
+                type:"post",
+                url:"http://192.168.202.143:8888/oneinfo",
+                dataType:"json",
+                data:{
+                    username:document.getElementById('username').value,
+                },
+                success:function (data) {
+                    if(data.info==0){
+                        alert("信息保存成功");
+                    }else {
+                        alert("信息保存失败");
+                    }
+                }
+            });
+        }
+
+    });
+    $("#sub").click(function () {
+        var formData=new FormData($('form')[0])
+        $.ajax({
+            url:"http://192.168.202.143:8888/imageupload",
+            type:"post",
+            data:formData,
+            dataType:'json',
+            success:function (data) {
+                if(data.info==0){
+                    alert('文件上传成功');
+                }else {
+                    alert("图片上传失败");
+                }
+
+            },
+            error:function () {
+                alert('图片上传失败');
+            },
+            contentType:false,
+            processData:false
+        });
+    });
+
+    $.ajax({
+        url:"http://192.168.202.143:8888/imageupload",
+        type:"get",
+        dataType:"json",
+        success:function (data) {
+            if(data.code==200){
+                $(".img").attr("src",data.file_path);
+                $("#username").val(data.user);
+            }else if(data.code==300){
+                $(".img").attr("src","");
+            }
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

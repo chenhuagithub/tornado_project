@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的爱家</title>
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4" ></div>
+            <div class="col-md-1" ><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></div>
+            <div class="col-md-2" ><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我的爱家</span></div>
+            <div class="col-md-1" ><span></span></div>
+            <div class="col-md-4"></div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="row" >
+                    <div class="col-md-4"><span>个人信息</span></div>
+                    <div class="col-md-5"></div>
+                    <div class="col-md-3"><span id="check" style="color: dodgerblue">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;修改</span></div>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-3"><img style="height: 60px;width: 60px;" src="statics/img/01.jpg"></div>
+                    <div class="col-md-5"><span>用户名:</span><br><span>手机号:</span></div>
+                    <div class="col-md-4"></div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div><br>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="form-group has-feedback">
+                  <input type="text" class="form-control"  readonly placeholder="我的订单" aria-describedby="inputSuccess2Status">
+                  <span class="glyphicon glyphicon-shopping-cart form-control-feedback" aria-hidden="true"></span>
+                  <span id="inputSuccess2Status" class="sr-only">(success)</span>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="form-group has-feedback">
+                  <input type="text" class="form-control"  readonly placeholder="实名验证" aria-describedby="inputSuccess2Status">
+                  <span class="glyphicon glyphicon-user form-control-feedback" aria-hidden="true"></span>
+                  <span  class="sr-only">(success)</span>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="form-group has-feedback">
+                  <input type="text" class="form-control"  readonly placeholder="我的房源" aria-describedby="inputSuccess2Status">
+                  <span class="glyphicon glyphicon-home form-control-feedback" aria-hidden="true"></span>
+                  <span  class="sr-only">(success)</span>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="form-group has-feedback">
+                  <input type="text" class="form-control"  readonly placeholder="客户订单" aria-describedby="inputSuccess2Status">
+                  <span class="glyphicon glyphicon-list-alt form-control-feedback" aria-hidden="true"></span>
+                  <span  class="sr-only">(success)</span>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="form-group has-feedback">
+                  <input type="text" class="form-control"  readonly placeholder="退出" aria-describedby="inputSuccess2Status">
+                  <span class="form-control-feedback" aria-hidden="true"></span>
+                  <span  class="sr-only">(success)</span>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+            <div class="col-md-4"></div>
+        </div>
+
+    </div>
+
+<script type="text/javascript">
+    $("#check").click(function (e) {
+        window.location.href="";
+
+    });
+</script>
+
+</body>
+</html>

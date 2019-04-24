@@ -1,0 +1,25 @@
+from handlers.publish import Passpory,VerifyCode,Test,Info,Myhouse,HouseResource
+
+handlers=[
+    (r"/", VerifyCode.FistPageHandler),
+    (r"/chat", Passpory.ChatHandler),
+    (r'/image',VerifyCode.ImageHandler),
+    (r'/check_code',VerifyCode.CheckImagehandler),
+    (r'/login',VerifyCode.LoginHandler),
+    (r'/register',VerifyCode.RegisterHandler),
+    (r'/mobile',VerifyCode.MobileHandler),
+    (r'/test',Test.TestHandler),
+    (r'/userinfo',Info.UserInfoHandler),
+    (r'/oneinfo',Info.OneInfoHandler),
+    (r'/imageupload',Info.ImageUploadHandler),
+    (r'/getUsernameMobile',Info.GetUsernameMobileHandler),
+    (r'/myorder',Info.MyOrderHandler),
+    (r'/realname',Info.RealNameHandler),
+    (r'/isrealname',Info.IsRealNameHandler),
+    (r'/myhouse',Myhouse.MyHouseHandler),
+    (r'/publichouse',Myhouse.PublicNewHouse),
+    (r'/houseimage',Myhouse.HouseImageHandler),
+    (r'/clientorders',Myhouse.ClientOrdersHandler),
+    (r'/shutdown',Myhouse.ShutDownHandler),
+    (r'/houseresource',HouseResource.HouseResourceHandler),
+]

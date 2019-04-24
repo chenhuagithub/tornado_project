@@ -1,0 +1,24 @@
+handlers：处理逻辑和路由映射 C控制层
+
+base: 处理基类,其他业务处理类可以继承至这个基类
+public: 业务处理类
+ursl: 路由配置文件
+libs：库文件 做一些中间层的封装 作用：解耦合
+
+logs/log.txt: 日志文件
+
+models：模型类 处理数据库交互
+
+setting：项目配置文件
+
+static：静态文件 存放 js 、css 、html、img
+
+templates：模板 存放html页面
+
+utils：工具类 比如：验证码生成、IP地址转换
+
+venv：虚拟路径
+
+plist：项目依赖包
+
+server.py：项目启动文件

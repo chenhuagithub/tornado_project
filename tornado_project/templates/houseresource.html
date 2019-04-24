@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的订单</title>
+    <script src="https://cdn.staticfile.org/jquery/3.3.1/jquery.min.js"></script>
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+        .colo{
+            background-color: lightgrey;
+
+        }
+        .col{
+            background-color: white;
+
+        }
+        .fh{
+            color: dodgerblue;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 colo" id="chenhua" style=";border-style: groove" >
+                <div class="row col">
+                    <div class="col-md-4"><span id="return" class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></div>
+                    <div class="col-md-4"><span >房源</span></div>
+                    <div class="col-md-4"></div>
+                    <hr>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 btn-group">
+                        <span>入住日期</span>
+                        <span data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        </span>
+
+                        <div class="dropdown-menu colo" style="width: 300%;">
+                            <input style="width: 47%;" type="text">至<input style="width: 47%;" type="text">
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-4 btn-group">
+                        <span>位置区域</span>
+                        <span data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        </span>
+
+                        <div class="dropdown-menu colo" style="width: 300%;margin-left: -100%;">
+                            <div class="row">
+                                <div class="col-md-4"><span class="fh">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;霞山区</span></div>
+                                <div class="col-md-4"><span class="fh">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;麻章区</span></div>
+                                <div class="col-md-4"><span class="fh">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;赤坎区</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 btn-group">
+                        <span>最新上线</span>
+                        <span data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="caret"></span>
+                        </span>
+
+                        <div class="dropdown-menu colo" style="width: 300%;margin-left: -200%">
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+                </div>
+
+
+
+
+            </div>
+            <div class="col-md-4"></div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+<script type="text/javascript">
+    $("#return").click(function (e) {
+        window.location.href="http://192.168.202.143:8888/";
+
+    });
+
+
+</script>
+
+</body>
+</html>

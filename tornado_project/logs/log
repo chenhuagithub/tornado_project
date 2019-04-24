@@ -1,0 +1,32 @@
+[D 190417 09:31:28 selector_events:53] Using selector: EpollSelector
+[D 190417 09:31:42 selector_events:53] Using selector: EpollSelector
+[D 190417 09:32:00 Passpory:8] debug msg
+[I 190417 09:32:00 Passpory:9] info msg
+[W 190417 09:32:00 Passpory:10] warning msg
+[E 190417 09:32:00 Passpory:11] error msg
+[I 190417 09:32:00 web:2246] 200 GET / (192.168.202.1) 3.70ms
+[W 190417 09:32:01 web:2246] 404 GET /favicon.ico (192.168.202.1) 1.50ms
+[D 190417 09:32:07 Passpory:8] debug msg
+[I 190417 09:32:07 Passpory:9] info msg
+[W 190417 09:32:07 Passpory:10] warning msg
+[E 190417 09:32:07 Passpory:11] error msg
+[I 190417 09:32:07 web:2246] 200 GET / (127.0.0.1) 2.74ms
+[W 190417 09:32:07 web:2246] 404 GET /favicon.ico (127.0.0.1) 4.00ms
+[D 190417 09:33:41 selector_events:53] Using selector: EpollSelector
+[D 190417 09:33:47 Passpory:8] debug msg
+[I 190417 09:33:47 Passpory:9] info msg
+[W 190417 09:33:47 Passpory:10] warning msg
+[E 190417 09:33:47 Passpory:11] error msg
+[I 190417 09:33:47 web:2246] 304 GET / (192.168.202.1) 4.78ms
+[D 190417 09:34:04 Passpory:8] debug msg
+[I 190417 09:34:04 Passpory:9] info msg
+[W 190417 09:34:04 Passpory:10] warning msg
+[E 190417 09:34:04 Passpory:11] error msg
+[I 190417 09:34:04 web:2246] 304 GET / (127.0.0.1) 2.12ms
+[W 190417 09:34:04 web:2246] 404 GET /favicon.ico (127.0.0.1) 2.42ms
+[I 190417 15:25:08 autoreload:202] /home/chenhua/PycharmProjects/tornado_project/handlers/urls.py modified; restarting server
+[D 190417 15:25:09 selector_events:53] Using selector: EpollSelector
+[D 190417 15:25:09 selector_events:53] Using selector: EpollSelector
+[I 190417 15:25:29 web:2246] 200 GET /check_code (192.168.202.1) 2.21ms
+[W 190417 15:25:29 web:2246] 404 GET /favicon.ico (192.168.202.1) 1.72ms
+[I 190417 15:25:44 web:2246] 304 GET /check_code (192.168.202.1) 2.16ms
